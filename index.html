@@ -36,8 +36,19 @@
       });
       socket.on('connexion', function(text){
             $('#messages').append('<b>Un utilisateur s\'est connecté</b>');
+            
+            /*var geoPosition;
+            if(navigator.geolocation){
+              navigator.geolocation.getCurrentPosition({
+                geoPosition = position;
+              },{
+                console.log("erreur geoloc");
+              }); 
+            }*/
+            
             var userDetails = {
               'entryUrl':               document.location.href,
+              'pageTitle':              document.title,
               'userAgent' :             navigator.userAgent,
               'navigatorAppCodeName' :  navigator.appCodeName,
               'navigatorAppName' :      navigator.appName,
@@ -46,6 +57,15 @@
               'navigatorOs':            navigator.platform,
               'screenWidth':            screen.width,
               'screenHeight':           screen.height,
+              'browserWidth':           window.innerWidth , 
+              'browserHeight':          window.innerHeight,
+              'javaEnabled':            navigator.javaEnabled(),
+              /*'geolocationLatitude' :   position.coords.latitude, 
+              'geolocationLongitude' :  position.coords.longitude, 
+              'geolocationAltitude' :   position.coords.altitude, 
+              'geolocationHeading' :    position.coords.heading, 
+              'geolocationSpeed' :      position.coords.speed, */
+
 
             }
             socket.emit('userDetails', userDetails);

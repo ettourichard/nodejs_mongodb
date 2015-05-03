@@ -38,10 +38,27 @@ io.on('connection', function(socket){
     });
     socket.on('userDetails', function(userDetails){
         //for each(var value in userDetails){
-            console.log("entryUrl =" + userDetails['entryUrl']);
-            console.log("userAgent=" + userDetails['userAgent']);
-            console.log("screenWidth="+ userDetails['screenWidth']);
-            console.log("screenHeight="+ userDetails['screenHeight']);
+            console.log("\n  ");
+            console.log("\n\t>>Infos navigation  ");
+            console.log("- Page courante \t\t[" + userDetails['entryUrl'] +"]");
+            console.log("- Titre de la page \t\t[" + userDetails['pageTitle'] +"]");
+            console.log("\n\t>>Infos matériel  ")
+            console.log("- userAgent \t\t\t[" + userDetails['userAgent'] +"]");
+            console.log("- appCodeName \t\t\t[" + userDetails['navigatorAppCodeName'] +"]");
+            console.log("- appName \t\t\t[" + userDetails['navigatorAppName'] +"]");
+            console.log("- appVersion \t\t\t[" + userDetails['navigatorAppVersion'] +"]");
+            console.log("- OS \t\t\t\t[" + userDetails['navigatorOs'] +"]");
+            console.log("- language \t\t\t[" + userDetails['navigatorLanguage'] +"]");
+            console.log("- screenResolution \t\t["+ userDetails['screenWidth'] + "x" + userDetails['screenHeight'] +"]");
+            console.log("- browserResolution \t\t["+ userDetails['browserWidth'] + "x" + userDetails['browserHeight'] +"]");
+            console.log("- javaEnabled \t\t\t[" + userDetails['javaEnabled'] +"]");
+            console.log("\n\t>>Geolocation  ")
+            console.log("- latitude \t\t\t[" + userDetails['geolocationLatitude'] +"]");
+            console.log("- longitude \t\t\t[" + userDetails['geolocationLongitude'] +"]");
+            console.log("- altitude \t\t\t[" + userDetails['geolocationAltitude'] +"]");
+            console.log("- heading \t\t\t[" + userDetails['geolocationHeading'] +"]");
+            console.log("- speed \t\t\t[" + userDetails['geolocationSpeed'] +"]");
+
        // }
         //console.log("info navigateur : "+ userDetails);
     })
