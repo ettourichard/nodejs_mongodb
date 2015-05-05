@@ -59,6 +59,7 @@ io.on('connection', function(socket){
             console.log("- heading \t\t\t[" + userDetails['geolocationHeading'] +"]");
             console.log("- speed \t\t\t[" + userDetails['geolocationSpeed'] +"]");
 
+
        // }
         //console.log("info navigateur : "+ userDetails);
     })

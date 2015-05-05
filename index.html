@@ -37,38 +37,37 @@
       socket.on('connexion', function(text){
             $('#messages').append('<b>Un utilisateur s\'est connecté</b>');
             
-            /*var geoPosition;
+            var userDetails = new Object();
+
             if(navigator.geolocation){
-              navigator.geolocation.getCurrentPosition({
-                geoPosition = position;
-              },{
-                console.log("erreur geoloc");
-              }); 
-            }*/
-            
-            var userDetails = {
-              'entryUrl':               document.location.href,
-              'pageTitle':              document.title,
-              'userAgent' :             navigator.userAgent,
-              'navigatorAppCodeName' :  navigator.appCodeName,
-              'navigatorAppName' :      navigator.appName,
-              'navigatorAppVersion' :   navigator.appVersion,
-              'navigatorLanguage':      navigator.language,
-              'navigatorOs':            navigator.platform,
-              'screenWidth':            screen.width,
-              'screenHeight':           screen.height,
-              'browserWidth':           window.innerWidth , 
-              'browserHeight':          window.innerHeight,
-              'javaEnabled':            navigator.javaEnabled(),
-              /*'geolocationLatitude' :   position.coords.latitude, 
-              'geolocationLongitude' :  position.coords.longitude, 
-              'geolocationAltitude' :   position.coords.altitude, 
-              'geolocationHeading' :    position.coords.heading, 
-              'geolocationSpeed' :      position.coords.speed, */
+              navigator.geolocation.getCurrentPosition(function(position){
+                userDetails.geolocationLatitude=  position.coords.latitude;
+                userDetails.geolocationLongitude= position.coords.longitude;
+                userDetails.geolocationAltitude=  position.coords.altitude;
+                userDetails.geolocationHeading=   position.coords.heading;
+                userDetails.geolocationSpeed=     position.coords.speed;
 
-
+              });
             }
-            socket.emit('userDetails', userDetails);
+            alert(userDetails.geolocationLatitude);
+
+            userDetails.entryUrl=               document.location.href;
+            userDetails.pageTitle=              document.title;
+            userDetails.userAgent=              navigator.userAgent;
+            userDetails.navigatorAppCodeName=   navigator.appCodeName;
+            userDetails.navigatorAppName=       navigator.appName;
+            userDetails.navigatorAppVersion=    navigator.appVersion;
+            userDetails.navigatorLanguage=      navigator.language;
+            userDetails.navigatorOs=            navigator.platform;
+            userDetails.screenWidth=            screen.width;
+            userDetails.screenHeight=           screen.height;
+            userDetails.browserWidth=           window.innerWidth;
+            userDetails.browserHeight=          window.innerHeight;
+            userDetails.javaEnabled=            navigator.javaEnabled();
+
+
+          
+          socket.emit('userDetails', userDetails);
       });
     </script>
 
